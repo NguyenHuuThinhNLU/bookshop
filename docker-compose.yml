@@ -1,0 +1,33 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bookshop
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+#  bookshop:
+#    build: .
+#    container_name: bookshop_backend
+#    depends_on:
+#      - mysql
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      - app-network
+#
+#networks:
+#  app-network:
+#
+#volumes:
+#  mysql_data:
